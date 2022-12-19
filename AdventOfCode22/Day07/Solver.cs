@@ -26,7 +26,23 @@ namespace AdventOfCode22.Day07
         {
             Navigator nav = BuildFilesystem();
 
-            return "";
+            long maxSpace = 70000000;
+            long neededSpace = 30000000;
+            long usedSpace = nav.UsedSpace;
+            long availableSpace = maxSpace - usedSpace;
+            long toRemove = neededSpace - availableSpace;
+
+            long bestFit = maxSpace;
+            foreach(Directory dir in nav.IterableDirectories)
+            {
+                int size = dir.Size;
+                if(size >= toRemove & size < bestFit)
+                {
+                    bestFit = size;
+                }
+            }
+
+            return "" + bestFit;
         }
 
         private Navigator BuildFilesystem()

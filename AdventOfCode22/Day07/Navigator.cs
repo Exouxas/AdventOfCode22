@@ -12,6 +12,7 @@ namespace AdventOfCode22.Day07
         public Directory Root { get; }
         public Directory CurrentDirectory { get; set; }
         public List<Directory> IterableDirectories { get; }
+        public long UsedSpace = 0;
 
         public Navigator(Directory root)
         {
@@ -56,6 +57,7 @@ namespace AdventOfCode22.Day07
         public void AddFile(string name, int size)
         {
             CurrentDirectory.Add(new File(name, size));
+            UsedSpace += size;
         }
     }
 }
