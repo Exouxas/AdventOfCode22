@@ -39,7 +39,56 @@ namespace AdventOfCode22.Day10
 
         public override string GetPuzzleOutput2()
         {
-            return "";
+            int x = 0;
+            int aaa = 0;
+            int cycle = 0;
+            string output = "\n";
+
+            foreach (string line in puzzleInput)
+            {
+                string[] parts = line.Split(' ');
+
+                cycle++;
+                aaa = (cycle - 1) % 40;
+                if (aaa >= x & aaa < x + 3)
+                {
+                    output += "#";
+                }
+                else
+                {
+                    output += " ";
+                }
+
+                if (cycle  % 40 == 0)
+                {
+                    output += "\n";
+                }
+
+                if (parts.Length == 2)
+                {
+                    cycle++;
+                    aaa = (cycle - 1) % 40;
+                    if (aaa >= x & aaa < x + 3)
+                    {
+                        output += "#";
+                    }
+                    else
+                    {
+                        output += " ";
+                    }
+
+
+                    if (cycle % 40 == 0)
+                    {
+                        output += "\n";
+                    }
+
+                    x += int.Parse(parts[1]);
+                }
+            }
+
+
+            return output;
         }
 
         protected override string GetFolderName()
