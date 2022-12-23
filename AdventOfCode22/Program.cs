@@ -7,7 +7,7 @@ namespace AdventOfCode22
     {
         static void Main(string[] args)
         {
-            AdventSolver solver = new Day09.Solver();
+            AdventSolver solver = new Day10.Solver();
             Console.WriteLine("Part 1: " + solver.GetPuzzleOutput1());
             Console.WriteLine("Part 2: " + solver.GetPuzzleOutput2());
         }
